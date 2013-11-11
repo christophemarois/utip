@@ -1,0 +1,71 @@
+<html>
+  <head>
+
+    <style type="text/css">
+      body { font-family: Helvetica; }
+
+      #container {
+        padding: 100px 300px;
+      }
+
+      table td a {
+        display: block;
+        background-color: #ddd;
+        text-align: center;
+        padding: 10px;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="utip.css" >
+
+  </head>
+  <body>
+
+    <div id="container">
+      <table>
+        <tr>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip.<br />Sup." data-utip-gravity="nw">Northwest</a>
+          </td>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="n">North</a>
+          </td>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="ne">Northeast</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="w">West</a>
+          </td>
+          <td></td>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="e">East</a>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="sw">Southwest</a>
+          </td>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="s">South</a>
+          </td>
+          <td>
+            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="se">Southeast</a>
+          </td>
+        </tr>
+      </table>
+
+    </div>
+
+    <script src="lib/jquery-git2.js"></script>
+    <script src="jquery.utip.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        $('a[data-utip]').utip();
+      });
+    </script>
+
+  </body>
+</html>
