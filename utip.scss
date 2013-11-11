@@ -63,6 +63,8 @@ $utipBackground:  black;
   background: black;
   color: white;
 
+  white-space: nowrap;
+
   &::before {
     position: absolute;
     content: '';
