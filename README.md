@@ -2,8 +2,6 @@
 
 Unobstrusive tooltips jQuery plugin.
 
-&copy; 2013 Syme (git @ symeapp)
-
 ## Requirements
 
 utip has no other requirements than jQuery.
@@ -42,3 +40,7 @@ $(function(){
 ```
 
 **Note:** utip binds its event to the selector rather than the elements themselves, making it possible to dynamically add or remove utip'ed elements.
+
+## License
+
+This software is licensed under the MIT licensed.
