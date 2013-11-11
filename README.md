@@ -43,4 +43,4 @@ $(function(){
 
 ## License
 
-This software is licensed under the MIT licensed.
+This software is licensed under the MIT license.
