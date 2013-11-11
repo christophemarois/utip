@@ -1,13 +1,11 @@
-// uTip, unobstrusive tooltips for jQuery
+// uTip, unobtrusive tooltips for jQuery
 // Version 0.1
 // (c) Syme (git @ symeapp)
 // Released under the MIT license
 
 (function($) {
 
-  var Utip = function(selector) {
-    $(document).on('mouseenter', selector, this.create);
-  };
+  var Utip = {};
 
   Utip.create = function(e){
 
@@ -15,7 +13,7 @@
 
     // Get data attributes
     var content = $this.attr('data-utip'),
-        gravity = $this.attr('data-utip-gravity');
+        gravity = $this.attr('data-utip-gravity') || 'n';
 
     // Remove previous utips left by hoverTimer
     $('#utip').remove();
@@ -31,6 +29,7 @@
 
     // Calculate tooltip position according to gravity
     var utipOffset = Utip.gravities(elOffset, elDimensions, utipDimensions)[gravity];
+
     $utip.css(utipOffset);
 
     // Bind removal on mouseleave, but allow hovering on tooltip
@@ -79,7 +78,7 @@
   };
 
   $.fn.utip = function() {
-    this.on('mouseenter', Utip.create);
+    $(document).on('mouseenter', this.selector, Utip.create);
     return this;
   };
 
