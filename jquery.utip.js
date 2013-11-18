@@ -1,5 +1,5 @@
 // uTip, unobtrusive tooltips for jQuery
-// Version 0.1
+// Version 0.1.1
 // (c) Syme (git @ symeapp)
 // Released under the MIT license
 
@@ -12,10 +12,11 @@
     var $this = $(this);
 
     // Get data attributes
-    var content = $this.attr('data-utip'),
-        gravity = $this.attr('data-utip-gravity') || 'n';
+    var content   = $this.attr('data-utip'),
+        gravity   = $this.attr('data-utip-gravity') || 'n', // North if not specified
+        hoverable = !!$this.attr('data-utip-hoverable');
 
-    // Remove previous utips left by hoverTimer
+    // Remove previous utips if previous hoverTimer didn't finish
     $('#utip').remove();
 
     // Create utip element and add it to body
@@ -27,18 +28,27 @@
         elDimensions    = { width: $this.outerWidth(), height: $this.outerHeight() },
         utipDimensions  = { width: $utip.outerWidth(), height: $utip.outerHeight() };
 
-    // Calculate tooltip position according to gravity
+    // Position tooltip according to gravity
     var utipOffset = Utip.gravities(elOffset, elDimensions, utipDimensions)[gravity];
-
     $utip.css(utipOffset);
 
-    // Bind removal on mouseleave, but allow hovering on tooltip
-    var hoverTimer;
-    $this.add($utip).hover(function(){
-      if (hoverTimer) clearTimeout(hoverTimer);
-    }, function(){
-      hoverTimer = setTimeout(function(){ $utip.remove(); }, 100);
-    });
+    if ( hoverable ) {
+
+      // Bind removal on mouseleave, but allow hovering on tooltip
+      var hoverTimer;
+      $this.add($utip).hover(function(){
+        if (hoverTimer) clearTimeout(hoverTimer);
+      }, function(){
+        hoverTimer = setTimeout(function(){ $utip.remove(); }, 100);
+      });
+
+    } else {
+
+      // Remove tooltip as soon as mouse leave
+      $this.one('mouseleave', function(){ $utip.remove(); });
+
+    }
+
 
   };
 
