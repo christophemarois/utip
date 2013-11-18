@@ -31,6 +31,12 @@ You can also specify a `data-utip-gravity` on those elements to set the tooltip'
 
 `data-utip-gravity` can be set to `nw | n | ne | e | se | s | sw | w`
 
+If you want to be able to hover on the tooltip, add a `data-utip-hoverable` attribute to the element, e.g.
+
+```html
+<a href="#" data-utip="Hello, I'm a hoverable utip." data-utip-hoverable>Tooltip</a>
+```
+
 ## Usage
 
 ```javascript
@@ -39,7 +45,7 @@ $(function(){
 });
 ```
 
-**Note:** utip binds its event to the selector rather than the elements themselves, making it possible to dynamically add or remove utip'ed elements.
+**Note:** utip binds its event to `$(document)` rather than the elements themselves, making it possible to dynamically add or remove utip'ed elements that match the selector, or in this case, `$('a[data-utip]')`.
 
 ## License
 
