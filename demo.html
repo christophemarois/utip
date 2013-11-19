@@ -1,71 +1,37 @@
 <html>
   <head>
 
-    <style type="text/css">
-      body { font-family: Helvetica; }
+    <title>jquery.apostrophe</title>
 
-      #container {
-        padding: 100px 300px;
-      }
+    <!-- Vendors -->
+    <script src="lib/less-1.5.0.min.js" type="text/javascript"></script>
+    <script src="lib/jquery-git2.js" type="text/javascript"></script>
 
-      table td a {
-        display: block;
-        background-color: #ddd;
-        text-align: center;
-        padding: 10px;
-      }
-    </style>
+    <!-- Plugin -->
+    <script src="jquery.apostrophe.js" type="text/javascript"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/utip.css" >
-
-  </head>
-  <body>
-
-    <div id="container">
-      <table>
-        <tr>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip.<br />Sup." data-utip-gravity="nw">Northwest</a>
-          </td>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="n">North</a>
-          </td>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="ne">Northeast</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="w">West</a>
-          </td>
-          <td></td>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="e">East</a>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="sw">Southwest</a>
-          </td>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="s">South</a>
-          </td>
-          <td>
-            <a href="#" data-utip="Hello, I'm a utip." data-utip-gravity="se">Southeast</a>
-          </td>
-        </tr>
-      </table>
-
-    </div>
-
-    <script src="lib/jquery-git2.js"></script>
-    <script src="jquery.utip.js"></script>
+    <!-- <link rel="stylesheet" type="text/css" href="css/apostrophe.css" > -->
+    <link rel="stylesheet/less" type="text/css" href="css/apostrophe.less" />
 
     <script type="text/javascript">
       $(function(){
-        $('a[data-utip]').utip();
+        $('#apostrophed').apostrophe();
       });
     </script>
 
+    <style type="text/css">
+      textarea {
+        width: 500px;
+        height: 500px;
+        resize: none;
+        padding: 10px;
+        font-size: 14px;
+        line-height: 18px;
+      }
+    </style>
+
+  </head>
+  <body>
+    <textarea id="apostrophed" placeholder="Type here"></textarea>
   </body>
 </html>
