@@ -64,7 +64,7 @@
         w: elO.left - utD.width + elD.width / 2,
         c: elO.left - utD.width / 2 + elD.width / 2,
         e: elO.left + elD.width / 2,
-        r: elO.left + elD.width,
+        r: elO.left + elD.width
       },
 
       v: {
