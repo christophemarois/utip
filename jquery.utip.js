@@ -15,6 +15,7 @@
     var content   = $this.attr('data-utip'),
         gravity   = $this.attr('data-utip-gravity') || 'n', // North if not specified
         hoverable = !!$this.attr('data-utip-hoverable');
+        style   = $(this).attr('data-utip-style') // Ability to add custom styling for a utip
 
     // Remove previous utips if previous hoverTimer didn't finish
     $('#utip').remove();
@@ -22,6 +23,20 @@
     // Create utip element and add it to body
     var $utip = $('<div id="utip" />').attr('data-gravity', gravity).html(content);
     $('body').prepend($utip);
+
+    // Detect custom styling and apply it if it exists.
+    // Example of a valid data-utip-style: {color: '#0F0', width: '50px'}
+    if ( style ) {
+      try {
+        style = JSON.parse(style)
+        for (var s in style) {
+          $utip.css(s, style[s])
+        }
+      }
+      catch(err) {
+        console.log('utip:', 'could not parse custom style')
+      }
+    }
 
     // Calculate dimensions
     var elOffset        = $this.offset(),
