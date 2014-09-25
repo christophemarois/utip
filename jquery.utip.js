@@ -1,4 +1,4 @@
-// uTip, unobtrusive tooltips for jQuery
+// uTip, unobtrusive tooltips for jQuery/Zepto
 // Version 0.1.1
 // (c) Syme (git @ symeapp)
 // Released under the MIT license
@@ -25,11 +25,15 @@
 
     // Calculate dimensions
     var elOffset        = $this.offset(),
-        elDimensions    = { width: $this.outerWidth(), height: $this.outerHeight() },
-        utipDimensions  = { width: $utip.outerWidth(), height: $utip.outerHeight() };
+        elDimensions    = { width: $this[0].offsetWidth, height: $this[0].offsetHeight },
+        utipDimensions  = { width: $utip[0].offsetWidth, height: $utip[0].offsetHeight };
 
     // Position tooltip according to gravity
+	console.log(elOffset)
+	console.log(elDimensions)
+	console.log(utipDimensions)
     var utipOffset = Utip.gravities(elOffset, elDimensions, utipDimensions)[gravity];
+	console.log(utipOffset)
     $utip.css(utipOffset);
 
     if ( hoverable ) {
@@ -92,4 +96,4 @@
     return this;
   };
 
-})(jQuery);
+})(window.Zepto || window.jQuery);
