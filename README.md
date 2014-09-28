@@ -1,14 +1,14 @@
 # utip
 
-Unobstrusive tooltips jQuery plugin.
+Unobstrusive tooltips jQuery/Zepto plugin.
 
 ## Requirements
 
-utip has no other requirements than jQuery.
+utip has no other requirements than jQuery/Zepto.
 
 ## Installation
 
-Include utip's CSS and jQuery plugin.
+Include utip's CSS and jQuery/Zepto plugin.
 
 ```html
 <script type='text/javascript' src='jquery.utip.js'></script>
